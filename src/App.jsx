@@ -1,205 +1,112 @@
-import React, { useState } from 'react';
-import { 
-  Globe, 
-  Code2, 
-  Cpu, 
-  Briefcase, 
-  Award, 
-  Database,
-  ChevronRight,
-  Mail,
-  Copy,
-  CheckCircle2,
-  Terminal,
-  Cloud,
-  FileCode
-} from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import React from 'react';
+import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase, FaGraduationCap, FaBrain, FaExternalLinkAlt, FaGlobe } from 'react-icons/fa';
+import { ChevronRight } from 'lucide-react';
 
-const Card = ({ icon: Icon, title, subtitle, href }) => {
+const LinkCard = ({ icon: Icon, title, subtitle, href, isPrimary = false }) => {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="card">
-      <div className="card-icon">
-        <Icon size={20} />
+    <a href={href} target="_blank" rel="noopener noreferrer" className={`link-card ${isPrimary ? 'primary' : ''}`}>
+      <div className="link-card-content">
+        <div className="link-icon">
+          <Icon size={20} />
+        </div>
+        <div className="link-text">
+          <span className="link-title">{title}</span>
+          <span className="link-subtitle">{subtitle}</span>
+        </div>
       </div>
-      <div className="card-content">
-        <h3 className="card-title">{title}</h3>
-        {subtitle && <p className="card-subtitle">{subtitle}</p>}
-      </div>
-      <ChevronRight size={18} className="card-arrow" />
+      <ChevronRight className="link-arrow" size={20} />
     </a>
   );
 };
 
 function App() {
-  const [copied, setCopied] = useState(false);
-  const email = 'balavishnu017@gmail.com';
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <div className="container">
-      <header className="profile-header">
-        <div className="avatar">
-          {/* We will use initials until photo is available */}
-          BV
-        </div>
-        <h1 className="profile-name">Bala Vishnu Vardhan Goud</h1>
-        <p className="profile-bio">
-          Full-Stack Developer & AI Engineer | Building Scalable & Intelligent Systems
-        </p>
-      </header>
+    <>
+      <div className="bg-blobs">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+      </div>
 
-      <section className="section">
-        <h2 className="section-title">
-          <Globe size={18} /> Connect with me
-        </h2>
-        <div className="card-list">
-          <Card 
+      <div className="container">
+        {/* Profile Header */}
+        <div className="profile-hub">
+          <div className="avatar-wrapper">
+            <div className="avatar-ring">
+              <div className="avatar-inner">
+                {/* Using GitHub Avatar temporarily as requested */}
+                <img src="https://avatars.githubusercontent.com/u/115676280?v=4" alt="Bala Vishnu" />
+              </div>
+            </div>
+            <div className="status-badge">
+              <span className="pulse-dot"></span>
+              Available for Hire
+            </div>
+          </div>
+          <h1>Dontha Bala Vishnu</h1>
+          <p>Full-Stack Developer & AI Engineer. Architecting scalable systems and intelligent applications.</p>
+        </div>
+
+        {/* Links Funnel */}
+        <div className="links-container">
+          
+          {/* Primary Call to Action */}
+          <LinkCard 
+            icon={FaGlobe} 
+            title="View Full Engineering Portfolio" 
+            subtitle="My case studies, resume, and skills." 
+            href="#" 
+            isPrimary={true}
+          />
+
+          <div className="section-label">Connect & Professional</div>
+          
+          <LinkCard 
             icon={FaLinkedin} 
-            title="LinkedIn Profile" 
+            title="LinkedIn" 
             subtitle="Let's connect professionally" 
             href="https://www.linkedin.com/in/balavishnuvardhan/" 
           />
-          <Card 
+          <LinkCard 
             icon={FaGithub} 
-            title="GitHub Profile" 
-            subtitle="Explore my open source projects" 
+            title="GitHub" 
+            subtitle="Explore my open source repositories" 
             href="https://github.com/BalaVishnu017" 
           />
-          <Card 
-            icon={Terminal} 
-            title="Portfolio Website" 
-            subtitle="View my full resume and projects" 
-            href="#" 
+          <LinkCard 
+            icon={FaEnvelope} 
+            title="Email Me" 
+            subtitle="balavishnu017@gmail.com" 
+            href="mailto:balavishnu017@gmail.com" 
           />
-        </div>
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">
-          <Code2 size={18} /> Featured Projects
-        </h2>
-        <div className="card-list">
-          <Card 
-            icon={Cloud} 
-            title="Weather-Based Event Planning" 
-            subtitle="React.js, Node.js, Weather APIs" 
-            href="https://github.com/BalaVishnu017" 
+          <div className="section-label">Featured Case Studies</div>
+
+          <LinkCard 
+            icon={FaBriefcase} 
+            title="Smart Placement System" 
+            subtitle="Full-Stack Node/React Architecture" 
+            href="https://github.com/BalaVishnu017/smart-placement-management-system" 
           />
-          <Card 
-            icon={Cpu} 
+          <LinkCard 
+            icon={FaBrain} 
             title="InfraVision AI" 
-            subtitle="OpenCV, Computer Vision, Pothole Detection" 
-            href="https://github.com/BalaVishnu017" 
+            subtitle="Computer Vision Pothole Detection" 
+            href="https://github.com/BalaVishnu017/Infravision-AI---Pothole-detection-and-automated-reporting-system" 
           />
-        </div>
-      </section>
+          <LinkCard 
+            icon={FaGlobe} 
+            title="Weather System" 
+            subtitle="Predictive Planning via API Integration" 
+            href="https://github.com/BalaVishnu017/Weather-Based-Event-Planning-System" 
+          />
 
-      <section className="section">
-        <h2 className="section-title">
-          <FileCode size={18} /> Coding Profiles
-        </h2>
-        <div className="card-list">
-          <Card 
-            icon={Code2} 
-            title="LeetCode" 
-            subtitle="Data Structures & Algorithms" 
-            href="#" 
-          />
-          <Card 
-            icon={Code2} 
-            title="CodeChef" 
-            subtitle="Competitive Programming" 
-            href="#" 
-          />
-          <Card 
-            icon={Code2} 
-            title="HackerRank" 
-            subtitle="Problem Solving & SQL" 
-            href="#" 
-          />
         </div>
-      </section>
 
-      <section className="section">
-        <h2 className="section-title">
-          <Briefcase size={18} /> Work Experience
-        </h2>
-        <div className="card-list">
-          <Card 
-            icon={Briefcase} 
-            title="Marvel Geospatial Solutions" 
-            subtitle="Software Development Intern • Jun 2023 - Nov 2023" 
-            href="#" 
-          />
+        <div className="footer">
+          &copy; {new Date().getFullYear()} Dontha Bala Vishnu. Built with React & Vite.
         </div>
-      </section>
-
-      <section className="section">
-        <h2 className="section-title">
-          <Award size={18} /> Verified Certifications
-        </h2>
-        <div className="card-list">
-          <Card 
-            icon={Award} 
-            title="Python Programming" 
-            subtitle="Certification" 
-            href="#" 
-          />
-          <Card 
-            icon={Database} 
-            title="Database Management Systems" 
-            subtitle="Advanced Relational Models" 
-            href="#" 
-          />
-          <Card 
-            icon={Cpu} 
-            title="AI/ML Virtual Internship" 
-            subtitle="Artificial Intelligence Program" 
-            href="#" 
-          />
-          <Card 
-            icon={FileCode} 
-            title="Node.js, Express.js and MongoDB" 
-            subtitle="Backend Development" 
-            href="#" 
-          />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="contact-card">
-          <div>
-            <h3>Get In Touch</h3>
-            <p>
-              Have an interesting project, internship, or full-stack opportunity? 
-              Let's connect and build together.
-            </p>
-          </div>
-          
-          <a href={`mailto:${email}`} className="btn-primary">
-            <Mail size={18} /> Send an Email
-          </a>
-          
-          <button onClick={copyEmail} className="btn-secondary">
-            {copied ? (
-              <><CheckCircle2 size={18} className="text-green-500" /> Copied to clipboard</>
-            ) : (
-              <><Copy size={18} /> Copy Email address</>
-            )}
-          </button>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <p>Designed by Bala Vishnu • &copy; {new Date().getFullYear()}</p>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -54,7 +54,7 @@ function App() {
             icon={FaGlobe} 
             title="View Full Engineering Portfolio" 
             subtitle="My case studies, resume, and skills." 
-            href="#" 
+            href="https://portfolio-ashy-eta-35.vercel.app" 
             isPrimary={true}
           />
 

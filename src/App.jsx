@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Github, 
-  Linkedin, 
   Globe, 
   Code2, 
   Cpu, 
@@ -16,6 +14,7 @@ import {
   Cloud,
   FileCode
 } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Card = ({ icon: Icon, title, subtitle, href }) => {
   return (
@@ -61,13 +60,13 @@ function App() {
         </h2>
         <div className="card-list">
           <Card 
-            icon={Linkedin} 
+            icon={FaLinkedin} 
             title="LinkedIn Profile" 
             subtitle="Let's connect professionally" 
             href="https://www.linkedin.com/in/balavishnuvardhan/" 
           />
           <Card 
-            icon={Github} 
+            icon={FaGithub} 
             title="GitHub Profile" 
             subtitle="Explore my open source projects" 
             href="https://github.com/BalaVishnu017" 

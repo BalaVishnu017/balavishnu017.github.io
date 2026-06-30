@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase, FaGraduationCap, FaBrain, FaExternalLinkAlt, FaGlobe } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase, FaGraduationCap, FaBrain, FaExternalLinkAlt, FaGlobe, FaCode, FaTrophy, FaCertificate } from 'react-icons/fa';
 import { ChevronRight } from 'lucide-react';
 
 const LinkCard = ({ icon: Icon, title, subtitle, href, isPrimary = false }) => {
@@ -98,6 +98,36 @@ function App() {
             title="Weather System" 
             subtitle="Predictive Planning via API Integration" 
             href="https://github.com/BalaVishnu017/Weather-Based-Event-Planning-System" 
+          />
+
+          <div className="section-label">Coding Profiles</div>
+          
+          <LinkCard 
+            icon={FaCode} 
+            title="LeetCode" 
+            subtitle="Problem Solving & DSA" 
+            href="https://leetcode.com/u/BalaVishnu017/" 
+          />
+          <LinkCard 
+            icon={FaTrophy} 
+            title="HackerRank" 
+            subtitle="Algorithms & Data Structures" 
+            href="#" 
+          />
+
+          <div className="section-label">Verified Certifications</div>
+          
+          <LinkCard 
+            icon={FaCertificate} 
+            title="Full Stack Web Development" 
+            subtitle="View Credential" 
+            href="#" 
+          />
+          <LinkCard 
+            icon={FaCertificate} 
+            title="Machine Learning & AI" 
+            subtitle="View Credential" 
+            href="#" 
           />
 
         </div>

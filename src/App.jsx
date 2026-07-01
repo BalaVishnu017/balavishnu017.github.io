@@ -106,28 +106,28 @@ function App() {
             icon={FaCode} 
             title="LeetCode" 
             subtitle="Problem Solving & DSA" 
-            href="https://leetcode.com/u/BalaVishnu017/" 
+            href="https://leetcode.com/u/BalaVishnuVardhanGoud/" 
           />
           <LinkCard 
             icon={FaTrophy} 
             title="HackerRank" 
             subtitle="Algorithms & Data Structures" 
-            href="#" 
+            href="https://www.hackerrank.com/profile/balavls918" 
+          />
+          <LinkCard 
+            icon={FaCode} 
+            title="CodeChef" 
+            subtitle="Competitive Programming" 
+            href="https://www.codechef.com/users/balavishnu_918" 
           />
 
-          <div className="section-label">Verified Certifications</div>
+          <div className="section-label">Experience & Certifications</div>
           
           <LinkCard 
-            icon={FaCertificate} 
-            title="Full Stack Web Development" 
-            subtitle="View Credential" 
-            href="#" 
-          />
-          <LinkCard 
-            icon={FaCertificate} 
-            title="Machine Learning & AI" 
-            subtitle="View Credential" 
-            href="#" 
+            icon={FaBriefcase} 
+            title="Software Development Intern" 
+            subtitle="Marvel Geospatial - View Certificate" 
+            href="/Marvel_Internship_Certificate.pdf" 
           />
 
         </div>
